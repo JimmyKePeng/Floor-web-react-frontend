@@ -25,10 +25,13 @@
   .right-arrow {
     height: 2.5rem;
     width: 2.5rem;
-    left: 10%;
-    right: 10%;
   }
-
+  .left-arrow {
+    left: 5%;
+  }
+  .left-arrow {
+    right: 5%;
+  }
   .btn {
     height: 0.8rem;
     width: 0.8rem;
