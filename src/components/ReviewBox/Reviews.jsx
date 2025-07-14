@@ -15,6 +15,8 @@ function Reviews() {
   const [prevReview, setPrevtReview] = useState(reviews.length - 1);
   const [nextReview, setNextReview] = useState(1);
   const [stop, setStop] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+
   function goNext() {
     setCurrentReview((prev) => (prev + 1) % reviews.length);
     setPrevtReview((prev) => (prev + 1) % reviews.length);
@@ -23,12 +25,21 @@ function Reviews() {
 
   useEffect(() => {
     if (stop) return;
+
     const interval = setInterval(() => {
       goNext();
     }, 3000);
     return () => clearInterval(interval);
   }, [stop, reviews.length]);
 
+  function showImage(url) {
+    setStop(true);
+    setSelectedImage(url);
+  }
+  function hidImage() {
+    setStop(false);
+    setSelectedImage(null);
+  }
   return (
     // <ReviewSlider reviews={reviews} />
     <div className="review-container">
@@ -43,7 +54,14 @@ function Reviews() {
         onMouseLeave={() => setStop(false)}
       >
         {reviews.map((review, index) =>
-          index === currentReview ? <ReviewBox review={review} /> : null
+          index === currentReview ? (
+            <ReviewBox
+              review={review}
+              onClick={() => {
+                showImage(review);
+              }}
+            />
+          ) : null
         )}
       </div>
       <div className="image-wrapper image right">
@@ -51,6 +69,12 @@ function Reviews() {
           index === nextReview ? <ReviewBox review={review} /> : null
         )}
       </div>
+
+      {selectedImage && (
+        <div className="show-container" onClick={hidImage}>
+          <img src={selectedImage} alt="Full view" className="show-image" />
+        </div>
+      )}
     </div>
   );
 }
