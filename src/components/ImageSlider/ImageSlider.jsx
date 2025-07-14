@@ -6,6 +6,7 @@ import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
 function ImageSlider({ images = [] }) {
   const [currentImage, setCurrentImage] = useState(0);
   const [autoPlay, setAutoPlay] = useState(true);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
     // myInterval = setInterval(function, milliseconds);
@@ -17,9 +18,19 @@ function ImageSlider({ images = [] }) {
     //clearInterval(myInterval);
   }, [autoPlay, images.length]);
 
-  function handleImageClick(url) {
-    const newWindow = window.open(url, "_blank", "noopener,noreferrer");
-    if (newWindow) newWindow.opener = null;
+  // open image in a new tab
+  // function handleImageClick(url) {
+  //   const newWindow = window.open(url, "_blank", "noopener,noreferrer");
+  //   if (newWindow) newWindow.opener = null;
+  // }
+
+  function showImage(url) {
+    setAutoPlay(false);
+    setSelectedImage(url);
+  }
+  function hidImage() {
+    setAutoPlay(true);
+    setSelectedImage(null);
   }
   return (
     <div className="image-container">
@@ -58,11 +69,26 @@ function ImageSlider({ images = [] }) {
               className="image"
               src={item}
               key={index}
-              onClick={() => handleImageClick(item)}
+              // onClick={() => handleImageClick(item)}
+              onClick={() => showImage(item)}
             />
           ) : null
         )}
       </div>
+      {selectedImage && (
+        <div
+          // className="fixed inset-0 z-50 bg-black bg-opacity-70 flex justify-center items-center"
+          className="show-container"
+          onClick={hidImage}
+        >
+          <img
+            src={selectedImage}
+            alt="Full view"
+            className="show-image"
+            // className="max-w-full max-h-full rounded-lg shadow-lg"
+          />
+        </div>
+      )}
     </div>
   );
 }
