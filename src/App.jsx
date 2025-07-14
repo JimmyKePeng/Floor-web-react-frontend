@@ -7,6 +7,7 @@ import Refinishing from "./pages/Refinishing";
 import Installation from "./pages/Installation";
 import Videos from "./pages/Videos";
 import Footer from "./components/Footer";
+import ContactMe from "./components/ContactMe";
 function App() {
   return (
     <div className="body">
@@ -20,6 +21,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
+      <ContactMe />
       <footer>
         <Footer />
       </footer>

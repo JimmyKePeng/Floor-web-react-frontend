@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"; // <Link to="/refinishing">Refinishing<
 import "./home.css";
 import ReviewBox from "../components/ReviewBox/ReviewBox";
 import Reviews from "../components/ReviewBox/Reviews";
+import ContactMe from "../components/ContactMe";
 
 function Home() {
   const googleReviewURL =
@@ -22,14 +23,9 @@ function Home() {
           here!
         </a>
       </p>
-
+      <ContactMe />
       <div>
         <Reviews />
-      </div>
-      <div className="contact-me">
-        <h2>Contact Me today!</h2>
-        <h2>Cell: 510-882-8948</h2>
-        <h2>Email: Minghardwoodfloor@gmail.com </h2>
       </div>
     </div>
   );

@@ -21,6 +21,18 @@
     flex-direction: column; /* Stack images vertically if needed */
     gap: 1rem;
   }
+  .left-arrow,
+  .right-arrow {
+    height: 2.5rem;
+    width: 2.5rem;
+    left: 10%;
+    right: 10%;
+  }
+
+  .btn {
+    height: 0.8rem;
+    width: 0.8rem;
+  }
 }
 
 /* body {
