@@ -1,0 +1,24 @@
+@import "tailwindcss";
+:root {
+  --my-blue: oklch(90.1% 0.058 230.902);
+  --my-letter-color: rgb(207, 77, 51);
+}
+
+/* body {
+  background-color: #301c12;
+  background-image: url("https://www.transparenttextures.com/patterns/retina-wood.png");
+} */
+.wrapper {
+  min-height: 80vh;
+
+  display: flex;
+  flex-direction: column;
+}
+footer {
+  height: 5rem;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  background-image: url("./assets/narbar_bg.png");
+}

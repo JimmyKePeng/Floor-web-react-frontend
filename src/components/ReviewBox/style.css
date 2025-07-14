@@ -1,0 +1,50 @@
+.img-box {
+  object-fit: contain; /* OR use 'cover' depending on effect */
+  border-radius: 1rem;
+  border-style: solid;
+  /* border-color: rgb(209, 85, 85); */
+
+  box-shadow: 8px 8px 16px rgba(255, 35, 6, 0.1);
+}
+
+.review-container {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 500px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.image-wrapper {
+  transition: transform 0.5s ease, z-index 0.5s;
+  position: relative;
+}
+
+.image-wrapper.image {
+  height: 500px;
+  width: 600px;
+  z-index: 1;
+  transform: scale(0.8);
+  opacity: 0.8;
+}
+.image-wrapper.image.left {
+  right: -200px;
+}
+
+.image-wrapper.image.right {
+  left: -60px;
+}
+
+.image-center {
+  height: 600px;
+  width: 700px;
+  z-index: 2;
+  transform: scale(1);
+  opacity: 1;
+}
+.image-center:hover {
+  height: 700px;
+  width: 800px;
+}
