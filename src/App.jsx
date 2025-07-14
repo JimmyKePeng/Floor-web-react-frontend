@@ -8,10 +8,12 @@ import Installation from "./pages/Installation";
 import Videos from "./pages/Videos";
 import Footer from "./components/Footer";
 import ContactMe from "./components/ContactMe";
+import ScrollToTop from "./components/ScrollToTop";
 function App() {
   return (
     <div className="body">
       <Navbar />
+      <ScrollToTop />
       <main className="wrapper">
         <Routes>
           <Route path="/" element={<Home />} />
