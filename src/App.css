@@ -3,6 +3,25 @@
   --my-blue: oklch(90.1% 0.058 230.902);
   --my-letter-color: rgb(207, 77, 51);
 }
+@media (max-width: 768px) {
+  .image-center {
+    max-width: 90vw;
+  }
+
+  .image-wrapper.image {
+    max-width: 70vw;
+  }
+
+  .image-center:hover {
+    max-width: 95vw;
+  }
+
+  .review-container {
+    height: auto;
+    flex-direction: column; /* Stack images vertically if needed */
+    gap: 1rem;
+  }
+}
 
 /* body {
   background-color: #301c12;
