@@ -13,7 +13,7 @@ export default function Contact() {
     setStatus(null);
 
     try {
-      const res = await fetch("http://localhost:3000/contact", {
+      const res = await fetch("https://floor-web-react-frontend.onrender.com", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
