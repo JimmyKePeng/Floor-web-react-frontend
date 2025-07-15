@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import "./home.css";
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState(null);
@@ -32,31 +32,44 @@ export default function Contact() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        name="name"
-        placeholder="Your Name"
-        value={form.name}
-        onChange={handleChange}
-        required
-      />
-      <input
-        name="email"
-        type="email"
-        placeholder="Your Email"
-        value={form.email}
-        onChange={handleChange}
-        required
-      />
-      <textarea
-        name="message"
-        placeholder="Your Message"
-        value={form.message}
-        onChange={handleChange}
-        required
-      />
-      <button type="submit">Send</button>
-      {status && <p>{status}</p>}
-    </form>
+    <div>
+      <form onSubmit={handleSubmit} className="form-container">
+        <div className="input-container">
+          <label> Name:</label>
+          <input
+            name="name"
+            placeholder="Your Name"
+            value={form.name}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="input-container">
+          <label>Email:</label>
+          <input
+            name="email"
+            type="email"
+            placeholder="Your Email"
+            value={form.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="textarea-container">
+          <label>Msg : </label>{" "}
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            value={form.message}
+            onChange={handleChange}
+            required
+            rows="4"
+          />
+        </div>
+
+        <button type="submit">Send</button>
+        {status && <p>{status}</p>}
+      </form>
+    </div>
   );
 }
