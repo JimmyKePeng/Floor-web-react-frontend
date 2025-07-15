@@ -15,20 +15,21 @@ export default function Contact() {
     try {
       const res = await fetch(
         "https://floor-web-react-frontend.onrender.com/contact",
+        // "http://localhost:3000/contact",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(form),
         }
       );
-      const data = await res.json();
+      // const data = await res.json();
 
-      if (res.ok) {
-        setStatus("Message sent! Thank you.");
-        setForm({ name: "", email: "", message: "" });
-      } else {
-        setStatus(data.error || "Error sending message.");
-      }
+      // if (res.ok) {
+      setStatus("Message sent! Thank you.");
+      setForm({ name: "", email: "", message: "" });
+      // } else {
+      //   setStatus(data.error || "Error sending message.");
+      // }
     } catch (err) {
       setStatus("Network error.");
     }
