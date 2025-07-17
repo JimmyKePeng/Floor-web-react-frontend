@@ -12,8 +12,8 @@ export default function Contact() {
     e.preventDefault();
     setIsSending(true);
     setStatus(null);
-    setStatus("Message sent! Thank you.");
-    setForm({ name: "", email: "", message: "" });
+    // setStatus("Message sent! Thank you.");
+    // setForm({ name: "", email: "", message: "" });
     try {
       const res = await fetch(
         "https://floor-web-react-frontend.onrender.com/contact",
@@ -24,14 +24,15 @@ export default function Contact() {
           body: JSON.stringify(form),
         }
       );
-      // const data = await res.json();
+      const data = await res.json();
 
-      // if (res.ok) {
-      // setStatus("Message sent! Thank you.");
-      setForm({ name: "", email: "", message: "" });
-      // } else {
-      //   setStatus(data.error || "Error sending message.");
-      // }
+      if (res.ok) {
+        setStatus("Message sent! Thank you.");
+        setForm({ name: "", email: "", message: "" });
+        setIsSending(false);
+      } else {
+        setStatus(data.error || "Error sending message.");
+      }
     } catch (err) {
       setStatus("Network error.");
       setIsSending(false);
