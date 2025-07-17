@@ -11,7 +11,7 @@ export default function Contact() {
   async function handleSubmit(e) {
     e.preventDefault();
     setStatus(null);
-
+    setStatus("Message sent! Thank you.");
     try {
       const res = await fetch(
         "https://floor-web-react-frontend.onrender.com/contact",
@@ -25,7 +25,7 @@ export default function Contact() {
       // const data = await res.json();
 
       // if (res.ok) {
-      setStatus("Message sent! Thank you.");
+      // setStatus("Message sent! Thank you.");
       setForm({ name: "", email: "", message: "" });
       // } else {
       //   setStatus(data.error || "Error sending message.");
