@@ -3,15 +3,17 @@ import "./home.css";
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState(null);
-
+  const [isSending, setIsSending] = useState(false);
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
   async function handleSubmit(e) {
     e.preventDefault();
+    setIsSending(true);
     setStatus(null);
     setStatus("Message sent! Thank you.");
+    setForm({ name: "", email: "", message: "" });
     try {
       const res = await fetch(
         "https://floor-web-react-frontend.onrender.com/contact",
@@ -32,6 +34,7 @@ export default function Contact() {
       // }
     } catch (err) {
       setStatus("Network error.");
+      setIsSending(false);
     }
   }
 
@@ -71,7 +74,9 @@ export default function Contact() {
           />
         </div>
 
-        <button type="submit">Send</button>
+        <button type="submit" disabled={isSending}>
+          Send
+        </button>
         {status && <p>{status}</p>}
       </form>
     </div>
