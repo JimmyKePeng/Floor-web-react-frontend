@@ -20,10 +20,11 @@ function App() {
           <Route path="/installation" element={<Installation />} />
           <Route path="/refinishing" element={<Refinishing />} />
           <Route path="/videos" element={<Videos />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
+          {/* <Route path="/contact" element={<Contact />} /> */}
+        </Routes>{" "}
+        <ContactMe />
       </main>
-      <ContactMe />
+
       <footer>
         <Footer />
       </footer>

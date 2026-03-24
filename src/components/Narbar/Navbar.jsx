@@ -46,7 +46,7 @@ function Navbar() {
         <Link to="/installation">Installation</Link>
         <Link to="/refinishing">Refinishing</Link>
         <Link to="/videos">Videos</Link>
-        <Link to="/contact">Contact</Link>
+        {/* <Link to="/contact">Contact</Link> */}
       </div>
     </nav>
   );
